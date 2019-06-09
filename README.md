@@ -1,7 +1,7 @@
 # Ethereum Web Database
 
-Use the csv file generated from https://github.com/ziyaadparker/eth-secure.git
-The csv file will now contain possible ethereum private and public keys.
+Use the csv file generated from https://github.com/ziyaadparker/eth-secure.git.
+The csv file will contain possible ethereum private and public keys.
 
 Follow below code to import the data into the database.
 
@@ -18,4 +18,4 @@ Now run the code to display the date in the web interface.
 python manage.py runserver
 ```
 
-Feel free to fork and contribute. 
+Feel free to fork and contribute.
