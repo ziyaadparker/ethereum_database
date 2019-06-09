@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head_title %} {{ block.super }}  {% endblock %}
+
+{% block content %}
+
+<table class="table table-bordered">
+        <tr><td><strong>Private Key</strong></td><td><strong>Public Address</strong></td></tr>
+
+{% for ethkey in ethkeys %}
+        <tr>
+        <td> {{ethkey.public_key}} </td>
+        <td> {{ethkey.private_key}} </td>
+        </tr>
+{% endfor %}
+</table>
+
+{% if ethkeys.has_other_pages %}
+  <ul class="pagination">
+    {% if ethkeys.has_previous %}
+      <li><a href="?page={{ hexkeys.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in ethkeys.paginator.page_range %}
+      {% if ethkeys.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if ethkeys.has_next %}
+      <li><a href="?page={{ hexkeys.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+{% endblock content %}
+
+{% block js %}
+{% endblock js %}
